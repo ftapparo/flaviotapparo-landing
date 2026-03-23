@@ -1,0 +1,10 @@
+services:
+  meu-portal-verde:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: meu-portal-verde:latest
+    container_name: meu-portal-verde
+    restart: unless-stopped
+    ports:
+      - "8080:80"
