@@ -5,18 +5,6 @@ import { Mail, Github, Linkedin, Phone, ChevronDown } from "lucide-react";
 const Hero = () => {
   return (
     <section className="min-h-screen relative overflow-hidden flex flex-col">
-      {/* Full-width banner background */}
-      <div className="absolute inset-0">
-        <img
-          src={profilePhoto}
-          alt=""
-          className="w-full h-full object-cover object-top"
-        />
-        {/* Dark overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
-      </div>
-
       {/* Grid texture */}
       <div className="absolute inset-0 opacity-[0.04]" style={{
         backgroundImage: 'linear-gradient(hsl(82 85% 50%) 1px, transparent 1px), linear-gradient(90deg, hsl(82 85% 50%) 1px, transparent 1px)',
@@ -27,13 +15,13 @@ const Hero = () => {
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
 
       {/* Content */}
-      <div className="flex-1 flex items-end relative z-10 section-padding pb-32">
-        <div className="max-w-7xl mx-auto w-full">
+      <div className="flex-1 flex items-center relative z-10 section-padding">
+        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          {/* Left - Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl"
           >
             <motion.p
               initial={{ opacity: 0, x: -20 }}
@@ -75,6 +63,25 @@ const Hero = () => {
               <p className="text-muted-foreground text-sm">
                 📍 São José do Rio Preto, SP — Brasil
               </p>
+            </div>
+          </motion.div>
+
+          {/* Right - Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex justify-center md:justify-end"
+          >
+            <div className="relative">
+              <div className="w-72 h-[28rem] md:w-[22rem] md:h-[32rem] lg:w-[26rem] lg:h-[36rem] rounded-2xl overflow-hidden glow border-2 border-primary/20">
+                <img
+                  src={profilePhoto}
+                  alt="Flavio Tapparo"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-72 h-[28rem] md:w-[22rem] md:h-[32rem] lg:w-[26rem] lg:h-[36rem] rounded-2xl border border-primary/30 -z-10" />
             </div>
           </motion.div>
         </div>
